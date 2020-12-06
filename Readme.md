@@ -2,10 +2,14 @@
 
 ## what tools do we use
 
-| tool     | purpose                                   |
-|----------|-------------------------------------------|
-| eslint   | for linting                               |
-| nodemon  | for continous restarts while development  |
+* eslint - Linting
+* nodemon - automatic restart of application while development
+* raml - API Description of restful service api's via text
+* ?? docker
+* ?? mocha - testing the application
+
+## git repository
+
 
 ## starting the application
 
