@@ -1,0 +1,17 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",               // method for creating module code
+        "esModuleInterop": true,
+        "noImplicitAny": true,              // no implicit any types allowed         
+        "target": "es2020",                 // usd language spec
+        "moduleResolution": "Node",         // resolution for import statements
+        "sourceMap": true,
+        "outDir": "dist",                   // output directory for transpiled files
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true    
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "**/*.spec.ts"],
+    "lib": ["es2020"]
+}
