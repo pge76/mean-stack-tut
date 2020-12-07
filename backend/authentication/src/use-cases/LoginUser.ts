@@ -6,7 +6,7 @@ import { Inject } from 'typescript-ioc'
 export class LoginUser {
   accountRepository: InMemoryAccountRepository;
 
-  constructor(@Inject accountRepository: InMemoryAccountRepository) {
+  constructor(@Inject accountRepository: InMemoryAccountRepository) { // TODO: switch to correct injection
     this.accountRepository = accountRepository
   }
 
