@@ -8,7 +8,7 @@
     "lint-fix": "eslint --fix src/**",
     "validate": "run-p test lint",
     "precommit": "npm run validate",
-    "start-dev": "nodemon",
+    "start-dev": "nodemon -L",
     "start-dev-debug": "tsc && node dist/index.js --inspect",
     "start": "tsc && node dist/index.js",
     "test": "echo \"Error: not yet configured\" && exit 0"
@@ -38,6 +38,9 @@
     "typescript-ioc": "^3.2.2"
   },
   "dependencies": {
+    "@types/jsonwebtoken": "^8.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.7",
     "typescript-rest": "^3.0.2",
     "typescript-rest-ioc": "^1.0.0"
   }

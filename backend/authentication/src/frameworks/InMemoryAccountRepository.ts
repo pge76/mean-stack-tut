@@ -1,24 +1,19 @@
-import { Account } from '../entities/Account'
+import { Account } from '../domain/Account'
 import { AccountRepository } from '../contracts/AccountRepository'
+import { Credential } from '../domain/Credential'
 
 export class InMemoryAccountRepository extends AccountRepository {
   accounts: Array<Account>;
-  currentId: number;
+  currentId: string;
 
-  constructor () {
-    super()
-    this.accounts = [new Account('hansi', 'meier'), new Account('klausi', 'mueller')]
-    this.currentId = 3
-  }
-
-  async getByUsernameAndPassword (username: string, password: string): Promise<Account> {
-    const account = (await this.getAll()).find(acc => acc.username === username && acc.password === password)
+  async getByCredentials (credential: Credential): Promise<Account> {
+    const account = (await this.getAll()).find(acc => acc.email === credential.email && acc.password === credential.password)
     return Promise.resolve(account)
   }
 
   async add (account: Account): Promise<Account> {
-    this.currentId++
-    account.id = this.currentId
+    this.currentId = Math.random().toString(36).substring(7);
+    account._id = this.currentId
     this.accounts.push(account)
     return Promise.resolve(account)
   }

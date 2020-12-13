@@ -1,11 +1,8 @@
-import { POST, Path } from 'typescript-rest'
+import { Errors, POST, Path } from 'typescript-rest'
+import { Credential } from '../domain/Credential'
 import { Inject } from 'typescript-ioc'
 import { LoginUser } from '../use-cases/LoginUser'
 import { apiversion } from '../env'
-class LoginParam {
-  user: string
-  pass: string
-}
 
 @Path(apiversion + '/login')
 export class AuthenticationController {
@@ -17,8 +14,13 @@ export class AuthenticationController {
   }
 
   @POST
-  async doLoginUser (loginParam: LoginParam): Promise<string> {
-    console.log(loginParam.user + ' ' + loginParam.pass)
-    return await this.loginUser.execute(loginParam.user, loginParam.pass)
+  async doLoginUser (loginCredential: Credential): Promise<string> {
+    console.log(loginCredential.email + ' ' + loginCredential.password)
+    try {
+      const result: string = await this.loginUser.execute(loginCredential)
+      return result
+    } catch (e) {
+      throw new Errors.UnauthorizedError('Wrong Username and/or Password')
+    }
   }
 }
