@@ -25,12 +25,13 @@ export class AuthServer {
    * Start the server
    */
   public async start () {
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       this.server = this.app.listen(this.PORT, () => {
         console.log(`Listening to http://127.0.0.1:${this.PORT}`)
+        return resolve()
       })
       this.server.on('error', function (err) {
-        console.log(err)
+        console.error(err)
       })
     })
   }

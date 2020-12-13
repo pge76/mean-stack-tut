@@ -20,6 +20,10 @@ architecture: clean architecture by Robert C. Martin [https://blog.cleancoder.co
 
 ## starting the application
 
+- for development:
+  - cd backend\authentication
+  - npm run start-dev
+
 ## testing the application
 
 ## deploying the application
