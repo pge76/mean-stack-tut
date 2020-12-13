@@ -4,14 +4,15 @@ import { Credential } from '../domain/Credential'
 
 export class MongoDbAccountRepository extends AccountRepository {
   async getByCredentials (credential: Credential): Promise<Account> {
-    return Promise.resolve(new Account());
+    // TODO: add real moongose read from mongodb
+    return Promise.resolve(new Account())
   }
 
   async add (account: Account): Promise<Account> {
-    return Promise.resolve(new Account());
+    return Promise.resolve(new Account())
   }
 
   async getAll (): Promise<Array<Account>> {
-    return Promise.resolve([new Account()]);
+    return Promise.resolve([new Account()])
   }
 }

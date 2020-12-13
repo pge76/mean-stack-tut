@@ -1,4 +1,3 @@
-/* eslint-disable space-before-function-paren */
 import { Account } from '../domain/Account'
 import { AccountRepository } from '../contracts/AccountRepository'
 import { Credential } from '../domain/Credential'
