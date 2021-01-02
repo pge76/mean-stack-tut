@@ -1,6 +1,20 @@
 version: "3.8"
 
 services:
+  angular:
+    build:
+      context: ./frontend
+      dockerfile: debug.dockerfile
+    container_name: mean_angular
+    volumes:
+      - ./frontend:/frontend
+      - /frontend/node_modules
+    ports:
+      - "4200:4200"
+      - "49153:49153"
+    environment:
+      - NODE_ENV=dev
+
   backend-auth:
     build:
       context: ./backend/authentication
@@ -8,19 +22,19 @@ services:
     container_name: mean_auth
     volumes:
       - ./backend/authentication:/authentication
-      # - /backend/authentication/node_modules
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=development
       - MONGO_DB_USERNAME=user1
       - MONGO_DB_PASSWORD=password1
-      - MONGO_DB_HOST=mean_mongo_auth
+      - MONGO_DB_HOST=mean_auth_mongo
       - MONGO_DB_PORT=27017
       #- MONGO_DB_PARAMETERS=?authSource=admin
       - MONGO_DB_DATABASE=mean-auth-tut
     links:
       - database-auth
+
   database-auth:
     image: mongo # specify image to build container from
     container_name: mean_auth_mongo
@@ -31,8 +45,6 @@ services:
       - MONGO_DB_PASSWORD=password1
       - MONGO_DB=mean-auth-tut
     volumes:
-      #- ./backend/authentication/mongo:/home/mongodb
       - ./backend/authentication/mongo-init.sh:/docker-entrypoint-initdb.d/init-mongo.sh
-      #- ./backend/authentication/mongo/db:/data/db
     ports:
       - "27017:27017" # specify port forewarding

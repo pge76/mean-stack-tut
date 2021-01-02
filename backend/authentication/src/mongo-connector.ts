@@ -7,7 +7,8 @@ export class MongoConnector {
     return new Promise<void>((resolve, reject) => {
       const options: ConnectionOptions = {
         keepAlive: true,
-        useNewUrlParser: true // TODO: whats that?
+        useNewUrlParser: true,
+        useUnifiedTopology: true
       }
 
       mongoose.Promise = global.Promise;

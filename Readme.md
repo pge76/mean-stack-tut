@@ -6,23 +6,17 @@ completely developed in typescript using visual studio code
 
 architecture: clean architecture by Robert C. Martin [https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html]
 
-
 ## what tools do we use
 
 * eslint - Linting
 * nodemon - automatic restart of application while development
 * Swagger OpenAPI - API Description of restful service api's via text
-* ?? docker
-* ?? mocha - testing the application
+* Docker
 
 ## git repository
 
 
 ## starting the application
-
-- for development:
-  - cd backend\authentication
-  - npm run start-dev
 
 ## testing the application
 
@@ -34,6 +28,7 @@ architecture: clean architecture by Robert C. Martin [https://blog.cleancoder.co
   - https://github.com/katopz/best-practices/blob/master/best-practices-for-building-a-microservice-architecture.md
   - https://medium.com/@cramirez92/build-a-nodejs-cinema-microservice-and-deploying-it-with-docker-part-1-7e28e25bfa8b
   - https://github.com/Crizstian/cinema-microservice
+  - https://github.com/nitin27may/mean-docker (Docker Container Setup)
 - clean architecture and node
   - https://github.com/royib/clean-architecture-node
   - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
